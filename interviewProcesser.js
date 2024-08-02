@@ -21,7 +21,7 @@ fs.readdir(directoryPath, (err, files) => {
     markdownFiles.forEach(file => {
         const interview = fs.readFileSync(path.join(directoryPath, file), 'utf8');
         console.log(processMarkdown(interview));
-        fs.openSync(finalPath + path.parse(file).name + '.html', 'w');
+        fs.openSync(path.parse(file).name + '.html', 'w');
 
     });
 });
