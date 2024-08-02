@@ -18,6 +18,18 @@ header {
     flex-direction: column;
 }
 
+.bold {
+    font-weight: 700;
+}
+
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+
+
 .navbar {
     border-bottom: 1px solid #e9ecef;
     width: 100%;

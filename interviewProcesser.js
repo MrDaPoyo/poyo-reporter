@@ -3,6 +3,7 @@ const path = require('path');
 
 const markdownText = ``;
 const directoryPath = path.join(__dirname, 'interviews');
+const finalPath = path.join(__dirname, 'interviews_html');
 
 // Llegeix tots els fitxers del directori
 fs.readdir(directoryPath, (err, files) => {
@@ -20,6 +21,8 @@ fs.readdir(directoryPath, (err, files) => {
     markdownFiles.forEach(file => {
         const interview = fs.readFileSync(path.join(directoryPath, file), 'utf8');
         console.log(processMarkdown(interview));
+        fs.openSync(finalPath + path.parse(file).name + '.html', 'w');
+
     });
 });
 
@@ -42,9 +45,6 @@ function processMarkdown(text, poyo, speaker2) {
 
     return htmlOutput;
 }
-
-
-console.log(processMarkdown(markdownText));
 
 
 let interviews = ['overns - linux ricing.md'];
