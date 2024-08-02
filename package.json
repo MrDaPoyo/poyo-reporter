@@ -1,0 +1,24 @@
+{
+  "name": "poyo-reporter",
+  "version": "1.0.0",
+  "description": "Blog/Newspaper curated by Poyo!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrdapoyo/poyo-reporter.git"
+  },
+  "author": "Poyo!",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrdapoyo/poyo-reporter/issues"
+  },
+  "homepage": "https://github.com/mrdapoyo/poyo-reporter#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}

@@ -1,0 +1,20 @@
+html, body {
+    font-family: "Newsreader", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    overflow-x: hidden;
+}
+
+.navbar {
+    border-bottom: 1px solid #e9ecef;
+    width: 100%;
+    padding: 0 5%;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    padding: 0 10%;
+    margin: 0;
+}
