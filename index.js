@@ -1,7 +1,9 @@
 const express = require('express');
+const interviewProcesser = require('./interviewProcesser');    
 
 const app = express();
 const port = 3000;
+const interviewLocation = 'interviews';
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
