@@ -8,10 +8,28 @@ html, body {
 
 .navbar {
     border-bottom: 1px solid #e9ecef;
-    width: 100%;
+    width: 90vw;
     padding: 0 5%;
     margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.navbar > h1 {
+    color: black;
+}
+
+.red {
+    color:crimson;
+}
+
+.navbar > .links > * {
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    color: black;
+}
+
 
 .container {
     width: 100%;
