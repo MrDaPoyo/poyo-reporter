@@ -7,8 +7,9 @@ const finalPath = path.join(__dirname, 'interviews');
 function processMarkdown(text, poyo, speaker2) {
     const lines = text.trim().split('\n');
     const title = lines[0].replace('#', '').trim();
-    let htmlOutput = `<h1 class="title">${title}</h1>`;
-    htmlOutput += lines[1].replace('##', '<h2>')+'</h2>';
+    const subtitle = lines[1].replace('##', '').trim();
+    let htmlOutput = `<h1 class="title">${title}</h1><h2 class='subtitle'>${subtitle}</h2>\n`;
+    htmlOutput += `<meta name="title" content="${title}"><meta name="description" content="${subtitle}"><meta name="keywords" content="Poyo, Dapoyo, the poyo reporter, reporter, news, tutorial"><meta name="author" content="Poyo!"></meta>`;
     lines.forEach(line => {
         if (line.startsWith("Poyo:")) {
             line = line.replace("Poyo:", "");
