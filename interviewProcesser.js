@@ -17,10 +17,8 @@ function processMarkdown(text, poyo, speaker2) {
     lines.forEach(line => {
         if (line.startsWith("Poyo:")) {
             line = line.replace((interviewer + ":"), "");
-            console.log(interviewer);
             htmlOutput += `<p class="right-text bold">${line} <span class="red">:${interviewer}</span></p>\n`;
         } else if (line.startsWith("Overns:")) {
-            console.log(interviewee);
             line = line.replace((interviewee + ":"), "");
             htmlOutput += `<p class="left-text"><span class="bold">${interviewee}:</span>${line}</p>\n`;
         }
@@ -35,7 +33,6 @@ let interviews = ['overns-linux_ricing.md'];
 
 for (let i = 0; i < interviews.length; i++) {
     const interview = fs.readFileSync(`./raw_interviews/${interviews[i]}`, 'utf8');
-    console.log(interviews[i]);
     const interviewName = interviews[i].replace('.md', '.ejs');
     fs.writeFileSync(`views/${interviewName}`, processMarkdown(interview, 'Overns', 'Poyo'));
 }
