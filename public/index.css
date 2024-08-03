@@ -1,6 +1,6 @@
 :root {
-    --background: darkslategrey;
-    --color: white;
+    --background: white;
+    --color: darkslategray;
 }
 
 * {
