@@ -11,9 +11,8 @@ function processMarkdown(text, poyo, speaker2) {
     let htmlOutput = `<h1 class="title">${title}</h1><h2 class='subtitle bottom-border'>${subtitle}</h2>\n`;
     htmlOutput += `<meta name="title" content="${title}"><meta name="description" content="${subtitle}"><meta name="keywords" content="Poyo, Dapoyo, the poyo reporter, reporter, news, tutorial"><meta name="author" content="Poyo!"></meta>`;
     raw_users = lines[2].replace('###', '').trim();
-    interviewer = raw_users.split(',')[0];
-    interviewee = raw_users.split(',')[1];
-    console.log(interviewer + interviewee);
+    let interviewer = raw_users.split(',')[0];
+    let interviewee = raw_users.split(',')[1];
     lines.forEach(line => {
         if (line.startsWith("Poyo:")) {
             line = line.replace((interviewer + ":"), "");
