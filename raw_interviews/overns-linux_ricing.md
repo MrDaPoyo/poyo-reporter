@@ -1,7 +1,8 @@
-# Linux ricing
+# Linux ricing ft. Overns!
+## We'll interview Overns about the beauty of ricing Linux, and he may even give us some tips and tricks!
 
 Poyo: Welcome to the Poyo Reporter!
-Poyo: What's your personal definition of ricing?
+Poyo: So to get started, what would you say it's your personal definition of ricing?
 
 Overns: So, ricing is basically the art of customizing linux, but not like changing the theme of, say, a desktop enviorment. It's configuring stuff like bars, window managers and linux terminals to your liking by editing the config files of a wm or bar.
 

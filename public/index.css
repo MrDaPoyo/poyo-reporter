@@ -7,6 +7,7 @@ html, body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    font-size: 1.1em;
 }
 
 header {
@@ -22,11 +23,13 @@ header {
     font-weight: 700;
 }
 
-.text-left {
-    text-align: left;
+.left-text {
+    text-align: start;
+    width: 100%;
 }
-.text-right {
-    text-align: right;
+.right-text {
+    text-align:end;
+    width: 100%;
 }
 
 

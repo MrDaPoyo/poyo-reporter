@@ -1,5 +1,6 @@
 const express = require('express');
-const interviewProcesser = require('./interviewProcesser');    
+const interviewProcesser = require('./interviewProcesser');   
+const path = require('path'); 
 
 const app = express();
 const port = 3000;
@@ -7,6 +8,7 @@ const interviewLocation = 'interviews';
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.set('views', path.join(__dirname, '/views'));
 
 
 app.get('/', (req, res) => {
@@ -15,7 +17,7 @@ app.get('/', (req, res) => {
 
 app.get('/interviews/:name', (req, res) => {
     const name = req.params.name;
-    res.render("interviews/" + name);
+    res.render("interview", { name: name });
 });
 
 app.listen(port, () => {
