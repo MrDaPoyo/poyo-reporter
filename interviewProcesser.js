@@ -25,7 +25,8 @@ function processMarkdown(text, poyo, speaker2) {
             htmlOutput += `<p class="left-text"><span class="bold">${interviewee}:</span>${line}</p>\n`;
         }
     });
-
+    id = Math.floor(Math.random() * 1000000);
+    fs.writeFileSync(`interviews.json`, JSON.stringify({ id, title, subtitle, interviewer }), { flag: 'w' });
     return htmlOutput;
 }
 

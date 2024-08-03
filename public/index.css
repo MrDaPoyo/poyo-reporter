@@ -35,6 +35,10 @@ button {
     cursor: pointer;
 }
 
+a {
+    color: var(--color);
+}
+
 .bold {
     font-weight: 700;
 }
@@ -65,6 +69,11 @@ button {
 
 .bottom-border {
     border-bottom: 1px solid var(--color);
+}
+
+.hidden-link {
+    text-decoration: none;
+    color: var(--color);
 }
 
 .navbar > .links > a {
