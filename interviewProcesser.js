@@ -17,7 +17,7 @@ function processMarkdown(text, poyo, speaker2) {
     lines.forEach(line => {
         if (line.startsWith("Poyo:")) {
             line = line.replace((interviewer + ":"), "");
-            htmlOutput += `<p class="right-text bold">${line} <span class="red">:${interviewer}</span></p>\n`;
+            htmlOutput += `<p class="right-text bold">${line} :<span class="red">${interviewer}</span></p>\n`;
         } else if (line.startsWith("Overns:")) {
             line = line.replace((interviewee + ":"), "");
             htmlOutput += `<p class="left-text"><span class="bold">${interviewee}:</span>${line}</p>\n`;
