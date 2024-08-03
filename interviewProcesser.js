@@ -8,14 +8,21 @@ function processMarkdown(text, poyo, speaker2) {
     const lines = text.trim().split('\n');
     const title = lines[0].replace('#', '').trim();
     const subtitle = lines[1].replace('##', '').trim();
-    let htmlOutput = `<h1 class="title">${title}</h1><h2 class='subtitle'>${subtitle}</h2>\n`;
+    let htmlOutput = `<h1 class="title">${title}</h1><h2 class='subtitle bottom-border'>${subtitle}</h2>\n`;
     htmlOutput += `<meta name="title" content="${title}"><meta name="description" content="${subtitle}"><meta name="keywords" content="Poyo, Dapoyo, the poyo reporter, reporter, news, tutorial"><meta name="author" content="Poyo!"></meta>`;
+    raw_users = lines[2].replace('###', '').trim();
+    interviewer = raw_users.split(',')[0];
+    interviewee = raw_users.split(',')[1];
+    console.log(interviewer + interviewee);
     lines.forEach(line => {
         if (line.startsWith("Poyo:")) {
-            line = line.replace("Poyo:", "");
-            htmlOutput += `<p class="right-text bold">${line} <span class="red">:Poyo!</span></p>\n`;
-        } else if (line.startsWith('Overns:')) {
-            htmlOutput += `<p class="left-text">${line}</p>\n`;
+            line = line.replace((interviewer + ":"), "");
+            console.log(interviewer);
+            htmlOutput += `<p class="right-text bold">${line} <span class="red">:${interviewer}</span></p>\n`;
+        } else if (line.startsWith("Overns:")) {
+            console.log(interviewee);
+            line = line.replace((interviewee + ":"), "");
+            htmlOutput += `<p class="left-text"><span class="bold">${interviewee}:</span>${line}</p>\n`;
         }
     });
 

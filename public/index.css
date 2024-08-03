@@ -63,6 +63,10 @@ button {
     color:crimson;
 }
 
+.bottom-border {
+    border-bottom: 1px solid var(--color);
+}
+
 .navbar > .links > a {
     margin: 1rem 1rem;
     font-size: 1.2rem;
