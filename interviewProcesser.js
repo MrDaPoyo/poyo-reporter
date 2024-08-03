@@ -13,7 +13,7 @@ function processMarkdown(text, poyo, speaker2) {
     lines.forEach(line => {
         if (line.startsWith("Poyo:")) {
             line = line.replace("Poyo:", "");
-            htmlOutput += `<p class="right-text bold">${line} :Poyo!</p>\n`;
+            htmlOutput += `<p class="right-text bold">${line} <span class="red">:Poyo!</span></p>\n`;
         } else if (line.startsWith('Overns:')) {
             htmlOutput += `<p class="left-text">${line}</p>\n`;
         }

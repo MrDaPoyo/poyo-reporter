@@ -1,3 +1,8 @@
+:root {
+    --background: darkslategrey;
+    --color: white;
+}
+
 * {
     box-sizing: border-box;
 
@@ -8,6 +13,8 @@ html, body {
     font-weight: 400;
     font-style: normal;
     font-size: 1.1em;
+    color: var(--color);
+    background: var(--background);
 }
 
 header {
@@ -17,6 +24,15 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+button {
+    background-color: transparent;
+    color: var(--color);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .bold {
@@ -34,7 +50,7 @@ header {
 
 
 .navbar {
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid var(--color);
     width: 100%;
     padding: 0 5%;
     display: flex;
@@ -43,18 +59,14 @@ header {
     position: relative;
 }
 
-.navbar > h1 {
-    color: black;
-}
-
 .red {
     color:crimson;
 }
 
-.navbar > .links > * {
+.navbar > .links > a {
     margin: 1rem 1rem;
     font-size: 1.2rem;
-    color: black;
+    color: var(--color);
 }
 
 .container {
@@ -69,13 +81,13 @@ header {
     align-items: center;
     padding: 1rem;
     width: 100%;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid var(--color);
 }
 .themes > a {
-    color: black;
+    color: var(--color);
     font-size: 1.2rem;
 }
 .themes > span {
-    color: black;
+    color: var(--color);
     font-size: 1.2rem;
 }
