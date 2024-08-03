@@ -1,30 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const markdownText = ``;
-const directoryPath = path.join(__dirname, 'interviews');
-const finalPath = path.join(__dirname, 'interviews_html');
-
-// Llegeix tots els fitxers del directori
-fs.readdir(directoryPath, (err, files) => {
-    if (err) {
-        return console.log('Unable to scan directory: ' + err);
-    }
-
-    // Filtra només els fitxers amb extensió .md
-    const markdownFiles = files.filter(file => path.extname(file) === '.md');
-
-    // Mostra la llista de fitxers
-    console.log('Markdown files:', markdownFiles);
-
-    // Processa cada fitxer
-    markdownFiles.forEach(file => {
-        const interview = fs.readFileSync(path.join(directoryPath, file), 'utf8');
-        console.log(processMarkdown(interview));
-        fs.openSync(path.parse(file).name + '.html', 'w');
-
-    });
-});
+const directoryPath = path.join(__dirname, 'raw_interviews');
+const finalPath = path.join(__dirname, 'interviews');
 
 function processMarkdown(text, poyo, speaker2) {
     const lines = text.trim().split('\n');
@@ -47,9 +25,15 @@ function processMarkdown(text, poyo, speaker2) {
 }
 
 
-let interviews = ['overns - linux ricing.md'];
+let interviews = ['overns-linux_ricing.md'];
 
 for (let i = 0; i < interviews.length; i++) {
-    const interview = fs.readFileSync(`interviews/${interviews[i]}`, 'utf8');
+    const interview = fs.readFileSync(`./raw_interviews/${interviews[i]}`, 'utf8');
     console.log(processMarkdown(interview));
+    const interviewName = interviews[i].replace('.md', '.ejs');
+    fs.writeFileSync(`views/interviews/${interviewName}`, processMarkdown(interview, 'Overns', 'Poyo'));
 }
+
+module.exports = {
+    processMarkdown
+};
