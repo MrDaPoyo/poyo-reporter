@@ -1,13 +1,20 @@
 <%- include('header.ejs') %>
 <div class="container">
-    <div class="post-grid">
-        <div class="post">
-            <div class="post-header">
-                <h3 class="post-title">Ricing on linux. Ft Overns!</h3>
-                <p>Authored by <a href="poyo">Poyo!</a></p>
-            </div>
-            <div class="post-content">
-                <p>Poyo! Interviews Overns about the beauty of ricing linux. He'll also share some tips for us to get better at ricing!</p>
+    <div class="post-list">
+        <%- include('header.ejs') %>
+        <div class="container">
+            <div class="post-list">
+                <% for (let post of posts) { %>
+                <div class="post">
+                    <div class="post-header">
+                        <h3 class="post-title"><%= post.title %></h3>
+                        <p>Authored by <a href="<%= post.authorLink %>"><%= post.author %></a></p>
+                    </div>
+                    <div class="post-content">
+                        <p><%= post.content %></p>
+                    </div>
+                </div>
+                <% } %>
             </div>
         </div>
-        <%- include('footer.ejs') %>
+<%- include('footer.ejs') %>

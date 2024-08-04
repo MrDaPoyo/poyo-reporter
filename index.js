@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 app.get('/interviews/:name', (req, res) => {
     const name = req.params.name;
     console.log("hit! " + name + " " + req.ip);
-    res.render("interview", { name: name });
+    res.render("interview", { name: "interviews/"+name });
 });
 
 app.listen(port, () => {

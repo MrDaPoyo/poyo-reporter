@@ -25,13 +25,27 @@ function processMarkdown(text) {
     return htmlOutput;
 }
 
+function readData(text) {
+    const lines = text.trim().split('\n');
+    const title = lines[0].replace('#', '').trim();
+    const subtitle = lines[1].replace('##', '').trim();
+    let interviewer = raw_users.split(',')[0];
+    let interviewee = raw_users.split(',')[1];
+    return JSON.stringify({
+        title: title,
+        subtitle: subtitle,
+        interviewer: interviewer,
+        interviewee: interviewee
+    });
+}
 
-let interviews = ['overns-linux_ricing.md'];
+
+let interviews = ['overns-linux_ricing.md', 'april-music_band.md'];
 
 for (let i = 0; i < interviews.length; i++) {
     const interview = fs.readFileSync(`./raw_interviews/${interviews[i]}`, 'utf8');
     const interviewName = interviews[i].replace('.md', '.ejs');
-    fs.writeFileSync(`views/${interviewName}`, processMarkdown(interview, 'Overns', 'Poyo'));
+    fs.writeFileSync(`views/interviews/${interviewName}`, processMarkdown(interview, 'Overns', 'Poyo'));
 }
 
 module.exports = {

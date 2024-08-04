@@ -1,5 +1,5 @@
-# April and her band
-## Fudge is a jazz/blues band based on London.
+# Interviewing Fudge, ft. April!
+## Fudge is a jazz/blues band based on London. Today we'll interview april about her experience with the band and a lil bit about guitars.
 ### Poyo,April
 
 Poyo: Hey there, April! Welcome to the Poyo Reporter.
