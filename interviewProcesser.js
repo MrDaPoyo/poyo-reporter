@@ -4,7 +4,7 @@ const path = require('path');
 const directoryPath = path.join(__dirname, 'raw_interviews');
 const finalPath = path.join(__dirname, 'interviews');
 
-function processMarkdown(text, poyo, speaker2) {
+function processMarkdown(text) {
     const lines = text.trim().split('\n');
     const title = lines[0].replace('#', '').trim();
     const subtitle = lines[1].replace('##', '').trim();
@@ -22,8 +22,6 @@ function processMarkdown(text, poyo, speaker2) {
             htmlOutput += `<p class="left-text"><span class="bold">${interviewee}:</span>${line}</p>\n`;
         }
     });
-    id = Math.floor(Math.random() * 1000000);
-    fs.writeFileSync(`interviews.json`, JSON.stringify({ id, title, subtitle, interviewer }), { flag: 'w' });
     return htmlOutput;
 }
 
