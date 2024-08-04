@@ -16,7 +16,7 @@ function processMarkdown(text) {
     lines.forEach(line => {
         if (line.startsWith(interviewer+":")) {
             line = line.replace((interviewer + ":"), "");
-            htmlOutput += `<p class="right-text bold">${line} :<span class="red">${interviewer}</span></p>\n`;
+            htmlOutput += `<p class="right-text bold"><span class="red">${interviewer}:</span>${line}</p>\n`;
         } else if (line.startsWith(interviewee + ":")) {
             line = line.replace((interviewee + ":"), "");
             htmlOutput += `<p class="left-text"><span class="bold">${interviewee}:</span>${line}</p>\n`;
@@ -25,7 +25,7 @@ function processMarkdown(text) {
     return htmlOutput;
 }
 
-function readData(text) {
+function readData(text, location) {
     const lines = text.trim().split('\n');
     const title = lines[0].replace('#', '').trim();
     const subtitle = lines[1].replace('##', '').trim();
@@ -35,7 +35,8 @@ function readData(text) {
         title: title,
         subtitle: subtitle,
         interviewer: interviewer,
-        interviewee: interviewee
+        interviewee: interviewee,
+        location: location
     });
 }
 
@@ -45,9 +46,15 @@ let interviews = ['overns-linux_ricing.md', 'april-music_band.md'];
 for (let i = 0; i < interviews.length; i++) {
     const interview = fs.readFileSync(`./raw_interviews/${interviews[i]}`, 'utf8');
     const interviewName = interviews[i].replace('.md', '.ejs');
-    fs.writeFileSync(`views/interviews/${interviewName}`, processMarkdown(interview, 'Overns', 'Poyo'));
+    fs.writeFileSync(`views/interviews/${interviewName}`, processMarkdown(interview));
 }
 
+fs.writeFileSync('posts.json', JSON.stringify(interviews.map(interview => {
+    const interviewData = fs.readFileSync(`./raw_interviews/${interview}`, 'utf8');
+    return readData(interviewData, interview.replace('.md', '.ejs'));
+})));
+
 module.exports = {
-    processMarkdown
+    processMarkdown,
+    readData
 };
