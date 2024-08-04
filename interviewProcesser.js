@@ -14,10 +14,10 @@ function processMarkdown(text) {
     let interviewer = raw_users.split(',')[0];
     let interviewee = raw_users.split(',')[1];
     lines.forEach(line => {
-        if (line.startsWith("Poyo:")) {
+        if (line.startsWith(interviewer+":")) {
             line = line.replace((interviewer + ":"), "");
             htmlOutput += `<p class="right-text bold">${line} :<span class="red">${interviewer}</span></p>\n`;
-        } else if (line.startsWith("Overns:")) {
+        } else if (line.startsWith(interviewee + ":")) {
             line = line.replace((interviewee + ":"), "");
             htmlOutput += `<p class="left-text"><span class="bold">${interviewee}:</span>${line}</p>\n`;
         }
